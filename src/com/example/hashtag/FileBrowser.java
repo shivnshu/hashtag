@@ -154,7 +154,7 @@ public class FileBrowser extends Activity {
 
 			@TargetApi(Build.VERSION_CODES.HONEYCOMB) @Override
 			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
+					final int arg2, long arg3) {
 				// TODO Auto-generated method stub
 				PopupMenu p = new PopupMenu(FileBrowser.this, arg1);
 				p.getMenuInflater().inflate(R.menu.filebrowserpopupmenu, p.getMenu());
@@ -164,7 +164,7 @@ public class FileBrowser extends Activity {
 					public boolean onMenuItemClick(MenuItem arg0) {
 						// TODO Auto-generated method stub
 						if (arg0.getTitle().equals("Add a new tag")) {
-							db.addanewtag(filearg.get(arg0));
+							db.addanewtag(filearg.get(arg2));
 						}
 						if (arg0.getTitle().equals("Add an existing tag")) {
 							Toast.makeText(getApplicationContext(),
