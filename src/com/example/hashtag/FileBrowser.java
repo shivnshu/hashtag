@@ -33,8 +33,6 @@ public class FileBrowser extends Activity {
 	List<String>t3f = new ArrayList<String>();
 	List<Integer>imgf = new ArrayList<Integer>();
 	List<String>pathf = new ArrayList<String>();
-	int imgForFolder = R.drawable.fclose;
-	int imgForFile = R.drawable.file;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,16 +81,14 @@ public class FileBrowser extends Activity {
 						t1.add(name);
 						t2.add(num_item);
 						t3.add(date_modify);
-						img.add(imgForFolder);
+						img.add(0);
 						path.add(p);
 				}
 				else{		
-					String num_item = ff.length()+ " bytes";
-					int imgi=1;
-					t1f.add(name);
+					String num_item = ff.length()+ " bytes";t1f.add(name);
 					t2f.add(num_item);
 					t3f.add(date_modify);
-					imgf.add(imgForFile);	
+					imgf.add(1);	
 					pathf.add(p);
 				}
 			 }
