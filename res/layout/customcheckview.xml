@@ -9,12 +9,12 @@
         android:orientation="horizontal" >
 
         <CheckBox
-            android:id="@+id/c"
+            android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:id="@+id/cimg"
+            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher" />
@@ -25,7 +25,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/ct1"
+                android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
@@ -36,13 +36,13 @@
                 android:layout_weight="1" >
 
                 <TextView
-                    android:id="@+id/ct2"
+                    android:id="@+id/textView2"
                     android:layout_width="84dp"
                     android:layout_height="match_parent"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/ct3"
+                    android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="TextView" />

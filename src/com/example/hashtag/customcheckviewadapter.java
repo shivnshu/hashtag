@@ -3,9 +3,13 @@ package com.example.hashtag;
 import java.util.List;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class customcheckviewadapter extends BaseAdapter {
 
@@ -16,7 +20,7 @@ public class customcheckviewadapter extends BaseAdapter {
 	CheckBox check;
 	LayoutInflater inflater=null;
 
-	public customlistviewadapter(Context context,List<String> t1,List<String> t2,List<String> t3,List<Integer> img ) {
+	public customcheckviewadapter(Context context,List<String> t1,List<String> t2,List<String> t3,List<Integer> img ) {
 		// TODO Auto-generated constructor stub
 		result1 = t1;
 		result2 = t2;
@@ -57,11 +61,11 @@ public class customcheckviewadapter extends BaseAdapter {
 		Holder holder = new Holder();
 		View rowView;
 		rowView = inflater.inflate(R.layout.customcheckview, null);
-		holder.t1 = (TextView)rowView.findViewById(R.id.ct1);
-		holder.t2 = (TextView)rowView.findViewById(R.id.ct2);
-		holder.t3 = (TextView)rowView.findViewById(R.id.ct3);
-		holder.img = (ImageView)rowView.findViewById(R.id.cimg);
-		holder.check = (CheckBox)rowView.findViewById(R.id.c);
+		holder.t1 = (TextView)rowView.findViewById(R.id.textView1);
+		holder.t2 = (TextView)rowView.findViewById(R.id.textView2);
+		holder.t3 = (TextView)rowView.findViewById(R.id.textView3);
+		holder.img = (ImageView)rowView.findViewById(R.id.imageView1);
+		holder.check = (CheckBox)rowView.findViewById(R.id.checkBox1);
 
 		//holder.t1.setText(result1[position]);
 		//holder.t2.setText(result2[position]);
@@ -73,7 +77,7 @@ public class customcheckviewadapter extends BaseAdapter {
 		holder.t2.setText(result2.get(position));
 		holder.t3.setText(result3.get(position));
 		holder.img.setImageResource(R.drawable.ic_launcher);
-		holder.check.checked=False;
+		holder.check.setChecked(false);
 		
 		return rowView;
 
