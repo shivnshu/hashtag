@@ -3,19 +3,23 @@ package com.example.hashtag;
 import java.util.List;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class customlistviewadapter extends BaseAdapter  {
 
-	String [] result1;
-	String [] result2;
-	String [] result3;
-	int [] img1;
+	List<String> result1;
+	List<String> result2;
+	List<String> result3;
+	List<Integer> img1;
+	LayoutInflater inflater=null;
 
-	public customlistviewadapter(Context context,List<String> t1,List<String> t2,List<String> t3,List<String> img ) {
+	public customlistviewadapter(Context context,List<String> t1,List<String> t2,List<String> t3,List<Integer> img ) {
 		// TODO Auto-generated constructor stub
 		result1 = t1;
 		result2 = t2;
@@ -27,7 +31,7 @@ public class customlistviewadapter extends BaseAdapter  {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return result1.length;
+		return result1.size();
 	}
 
 	@Override
@@ -58,14 +62,18 @@ public class customlistviewadapter extends BaseAdapter  {
 		holder.t1 = (TextView)rowView.findViewById(R.id.t1);
 		holder.t2 = (TextView)rowView.findViewById(R.id.t2);
 		holder.t3 = (TextView)rowView.findViewById(R.id.t3);
-		holder.img = (TextView)rowView.findViewById(R.id.img);
+		holder.img = (ImageView)rowView.findViewById(R.id.img);
 
-		holder.t1.setText(result1[position]);
-		holder.t2.setText(result2[position]);
-		holder.t3.setText(result3[position]);
+		//holder.t1.setText(result1[position]);
+		//holder.t2.setText(result2[position]);
+		//holder.t3.setText(result3[position]);
 
-		holder.img.setImageResource(img1[position]);
-
+		//holder.img.setImageResource(img1[position]);
+		
+		holder.t1.setText(result1.get(position));
+		holder.t2.setText(result2.get(position));
+		holder.t3.setText(result3.get(position));
+		holder.img.setImageResource(R.drawable.ic_launcher);
 		return rowView;
 
 	}

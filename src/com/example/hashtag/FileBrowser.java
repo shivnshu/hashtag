@@ -10,39 +10,51 @@ import java.util.List;
 
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class FileBrowser extends Activity {
 
 	File currentdir;
 	customlistviewadapter adapter;
+	ListView l;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_file_browser);
-		currentdir=new File("/sdcard/");
+		l=(ListView)findViewById(R.id.listView1);
+		String path=Environment.getExternalStorageDirectory().toString();
+		currentdir=new File(path);
+		
 		fill(currentdir);
 	}
 
 	private void fill(File f) {
 		// TODO Auto-generated method stub
 	     File[]  dirs = f.listFiles(); 
+	     Toast.makeText(getApplicationContext(),"jj "+dirs.length,Toast.LENGTH_LONG).show();
 		 //this.setTitle("Current Dir: "+f.getName());
 		 List<String>t1 = new ArrayList<String>();
 		 List<String>t2 = new ArrayList<String>();
 		 List<String>t3 = new ArrayList<String>();
-		 List<String>img = new ArrayList<String>();
+		 List<Integer>img = new ArrayList<Integer>();
 		 List<String>t1f = new ArrayList<String>();
 		 List<String>t2f = new ArrayList<String>();
 		 List<String>t3f = new ArrayList<String>();
-		 List<String>imgf = new ArrayList<String>();
+		 List<Integer>imgf = new ArrayList<Integer>();
 		 try{
+		     
 			 for(File ff: dirs){
+				 
 				 Date lastModDate = new Date(ff.lastModified()); 
 				 DateFormat formater = DateFormat.getDateTimeInstance();
 			     String date_modify = formater.format(lastModDate);
+			     
 			     String name=ff.getName();
+			     
 			     String path=ff.getAbsolutePath();
 			     if(ff.isDirectory()){
 			    	 	File[] fbuf = ff.listFiles(); 
@@ -55,7 +67,7 @@ public class FileBrowser extends Activity {
 						} 
 						String num_item = String.valueOf(buf);
 						num_item = num_item + " items";
-						String imgi="dir";
+						int imgi=1;
 						t1.add(name);
 						t2.add(num_item);
 						t3.add(date_modify);
@@ -63,7 +75,7 @@ public class FileBrowser extends Activity {
 				}
 				else{		
 					String num_item = ff.length()+ " bytes";
-					String imgi="file";
+					int imgi=1;
 					t1f.add(name);
 					t2f.add(num_item);
 					t3f.add(date_modify);
@@ -74,6 +86,7 @@ public class FileBrowser extends Activity {
 		 catch(Exception e){			 
 		 }
 		 Collections.sort(t1);
+		 
 		 Collections.sort(t2);
 		 Collections.sort(t3);
 		 Collections.sort(t1f);
@@ -85,9 +98,8 @@ public class FileBrowser extends Activity {
 		 t2.addAll(t2f);
 		 t3.addAll(t3f);
 		 img.addAll(imgf);
-		 adapter = new customlistviewadapter(FileBrowser.this,t1,t2,t3,img);
-		 
-		// this.setListAdapter(adapter); 
+		 adapter = new customlistviewadapter(FileBrowser.this,t1,t2,t3,img);		 
+		 l.setAdapter(adapter); 
 	}
 
 	@Override

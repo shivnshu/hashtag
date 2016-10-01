@@ -27,5 +27,5 @@
             android:label="@string/title_activity_file_browser" >
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
