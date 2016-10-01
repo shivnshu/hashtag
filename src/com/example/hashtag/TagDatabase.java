@@ -16,21 +16,21 @@ public class TagDatabase extends SQLiteOpenHelper{
 	}
 
 	@Override
-	public void onCreate(SQLiteDatabase arg0) {
+	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		db.execSQL("Create table if not exists taginfo(tag text,file text)");
 
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
+	public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void addanewtag(File file) {
+	public void addnewtag(String file1,String tag1) {
 		// TODO Auto-generated method stub
-		
+		db.execSQL("insert into taginfo values('" + tag1 + "','" + file1 + "')");
 	}
 
 }

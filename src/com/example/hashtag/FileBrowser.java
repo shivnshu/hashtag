@@ -26,7 +26,6 @@ import android.widget.Toast;
 public class FileBrowser extends Activity {
 
 	File currentdir;
-	TagDatabase db;
 	customlistviewadapter adapter;
 	ListView l;
 	List<String>t1 = new ArrayList<String>();
@@ -46,7 +45,6 @@ public class FileBrowser extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_file_browser);
-		db = new TagDatabase(this);
 		l=(ListView)findViewById(R.id.listView1);
 		String path=Environment.getExternalStorageDirectory().toString();
 		currentdir=new File(path);		
@@ -164,7 +162,9 @@ public class FileBrowser extends Activity {
 					public boolean onMenuItemClick(MenuItem arg0) {
 						// TODO Auto-generated method stub
 						if (arg0.getTitle().equals("Add a new tag")) {
-							db.addanewtag(filearg.get(arg2));
+							Intent i=new Intent(FileBrowser.this,TakeName.class);
+							i.putExtra("file_path",path.get(arg2) );
+							startActivity(i);							
 						}
 						if (arg0.getTitle().equals("Add an existing tag")) {
 							Toast.makeText(getApplicationContext(),
@@ -185,7 +185,7 @@ public class FileBrowser extends Activity {
 					}
 				});
 				p.show();
-				return false;
+				return true;
 			}
 		});
 	}
