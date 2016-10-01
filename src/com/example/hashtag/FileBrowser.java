@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -134,5 +135,18 @@ public class FileBrowser extends Activity {
 		getMenuInflater().inflate(R.menu.file_browser, menu);
 		return true;
 	}
+	@Override  
+    public boolean onOptionsItemSelected(MenuItem item) {  
+        switch (item.getItemId()) {  
+            case R.id.action_settings:  
+              Toast.makeText(getApplicationContext(),"settings Selected",Toast.LENGTH_LONG).show();  
+            return true;     
+           case R.id.action_select:  
+                Toast.makeText(getApplicationContext(),"select Selected",Toast.LENGTH_LONG).show();  
+              return true;   
+              default:  
+                return super.onOptionsItemSelected(item);  
+        }  
+    }  
 
 }
