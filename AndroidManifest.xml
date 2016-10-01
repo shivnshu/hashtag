@@ -26,6 +26,12 @@
             android:name="com.example.hashtag.FileBrowser"
             android:label="@string/title_activity_file_browser" >
         </activity>
+        <activity
+            android:name="com.example.hashtag.Filebrowserselect"
+            android:label="@string/title_activity_filebrowserselect" >
+        </activity>
     </application>
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 </manifest>

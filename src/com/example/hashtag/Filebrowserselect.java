@@ -6,22 +6,18 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 import android.os.Bundle;
-import android.os.Environment;
 import android.app.Activity;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class FileBrowser extends Activity {
-
+public class Filebrowserselect extends Activity {
 	File currentdir;
-	customlistviewadapter adapter;
+	customcheckviewadapter adapter;
 	ListView l;
 	List<String>t1 = new ArrayList<String>();
 	List<String>t2 = new ArrayList<String>();
@@ -36,13 +32,13 @@ public class FileBrowser extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_file_browser);
-		l=(ListView)findViewById(R.id.listView1);
-		String path=Environment.getExternalStorageDirectory().toString();
+		setContentView(R.layout.activity_filebrowserselect);
+		l=(ListView)findViewById(R.id.listView2);
+		Bundle b=getIntent().getExtras();		
+		String path=b.getString("path");
 		currentdir=new File(path);		
 		fill(currentdir);
 	}
-
 	private void fill(File f) {
 		// TODO Auto-generated method stub
 	     File[]  dirs = f.listFiles(); 
@@ -101,55 +97,47 @@ public class FileBrowser extends Activity {
 		 t3.addAll(t3f);
 		 img.addAll(imgf);
 		 path.addAll(pathf);
-		/* if(!currentdir.getPath().toString().equals(Environment.getExternalStorageDirectory().toString())){
-			 t1.add(0, "back");
-			 t1.add(0, ".");
-			 t1.add(0, ".");
-			 img.add(0, 1);
-			 path.add(0,currentdir.getPath());
-		 }		*/ 
-		 adapter = new customlistviewadapter(FileBrowser.this,t1,t2,t3,img);		 
-		 l.setAdapter(adapter); 
-		 l.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				// TODO Auto-generated method stub
-			   if(img.get(arg2)==0){
-					currentdir = new File(path.get(arg2));
-					fill(currentdir);
-					//Toast.makeText(getApplicationContext(), arg2, Toast.LENGTH_LONG).show();
-				}
-				else{
-					Toast.makeText(getApplicationContext(), t1.get(arg2).toString(), Toast.LENGTH_LONG).show();
-				}
-			}
-			 
-		});
+		 adapter = new customcheckviewadapter(Filebrowserselect.this,t1,t2,t3,img);		 
+		 l.setAdapter(adapter);
 	}
-	
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.file_browser, menu);
+		getMenuInflater().inflate(R.menu.filebrowserselect, menu);
 		return true;
 	}
 	@Override  
     public boolean onOptionsItemSelected(MenuItem item) {  
         switch (item.getItemId()) {  
-            case R.id.action_settings:  {
-            	Toast.makeText(getApplicationContext(),"settings Selected",Toast.LENGTH_LONG).show();  
-                return true;  
-            }                 
-           case R.id.action_select: {
-        	   Toast.makeText(getApplicationContext(),"select Selected",Toast.LENGTH_LONG).show();  
-        	   Intent i=new Intent(FileBrowser.this,Filebrowserselect.class);
-        	   i.putExtra("path", currentdir.getPath());
-        	   startActivity(i);
-               return true;  
-           }                 
+            case R.id.action_settings:  
+              Toast.makeText(getApplicationContext(),"settings Selected",Toast.LENGTH_LONG).show();  
+            return true;     
+           case R.id.manage_tags: /*{
+        	   PopupMenu p = new PopupMenu(Filebrowserselect.this, l);
+				p.getMenuInflater().inflate(R.menu.manage_tags_menu, p.getMenu());
+				p.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+					@Override
+					public boolean onMenuItemClick(MenuItem arg0) {
+						// TODO Auto-generated method stub
+						if (arg0.getTitle().equals("add_tags")) {
+							Toast.makeText(getApplicationContext(),
+									"item 1 selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("remove_tags")) {
+							Toast.makeText(getApplicationContext(),
+									"item 2 selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						return false;
+					}
+				});
+				p.show();*/
+        	   Toast.makeText(getApplicationContext(),"mange tags Selected",Toast.LENGTH_LONG).show();  
+		
+               return true; 
+                             
               default:  
                 return super.onOptionsItemSelected(item);  
         }  
