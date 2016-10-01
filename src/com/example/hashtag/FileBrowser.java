@@ -8,6 +8,8 @@ import java.util.List;
 
 
 
+
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,6 +22,7 @@ import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -133,12 +136,13 @@ public class FileBrowser extends Activity {
 			}
 			 
 		});
-		 l.setOnLongClickListener(new OnLongClickListener() {
-			
+		 l.setOnItemLongClickListener(new OnItemLongClickListener() {
+
 			@TargetApi(Build.VERSION_CODES.HONEYCOMB) @Override
-			public boolean onLongClick(View arg0) {
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				PopupMenu p = new PopupMenu(FileBrowser.this, l);
+				PopupMenu p = new PopupMenu(FileBrowser.this, arg1);
 				p.getMenuInflater().inflate(R.menu.filebrowserpopupmenu, p.getMenu());
 				p.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
@@ -147,29 +151,28 @@ public class FileBrowser extends Activity {
 						// TODO Auto-generated method stub
 						if (arg0.getTitle().equals("Add a new tag")) {
 							Toast.makeText(getApplicationContext(),
-									"Add a new tag selected", Toast.LENGTH_LONG)
+									"item 1 selected", Toast.LENGTH_LONG)
 									.show();
 						}
 						if (arg0.getTitle().equals("Add an existing tag")) {
 							Toast.makeText(getApplicationContext(),
-									"Add an existing tag", Toast.LENGTH_LONG)
+									"item 3 selected", Toast.LENGTH_LONG)
 									.show();
 						}
 						if (arg0.getTitle().equals("Remove tags")) {
 							Toast.makeText(getApplicationContext(),
-									"Remove tags selected", Toast.LENGTH_LONG)
+									"item 2 selected", Toast.LENGTH_LONG)
 									.show();
 						}
-						if (arg0.getTitle().equals("View Related Tags")) {
+						if (arg0.getTitle().equals("Show related tags")) {
 							Toast.makeText(getApplicationContext(),
-									"View Related selected", Toast.LENGTH_LONG)
+									"item 4 selected", Toast.LENGTH_LONG)
 									.show();
 						}
 						return false;
 					}
 				});
 				p.show();
-				
 				return false;
 			}
 		});

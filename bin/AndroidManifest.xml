@@ -30,6 +30,10 @@
             android:name="com.example.hashtag.Filebrowserselect"
             android:label="@string/title_activity_filebrowserselect" >
         </activity>
+        <activity
+            android:name="com.example.hashtag.Filepopupmenu"
+            android:label="@string/title_activity_filepopupmenu" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
