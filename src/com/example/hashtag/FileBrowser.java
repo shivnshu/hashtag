@@ -6,16 +6,23 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class FileBrowser extends Activity {
@@ -125,6 +132,46 @@ public class FileBrowser extends Activity {
 				}
 			}
 			 
+		});
+		 l.setOnLongClickListener(new OnLongClickListener() {
+			
+			@TargetApi(Build.VERSION_CODES.HONEYCOMB) @Override
+			public boolean onLongClick(View arg0) {
+				// TODO Auto-generated method stub
+				PopupMenu p = new PopupMenu(FileBrowser.this, l);
+				p.getMenuInflater().inflate(R.menu.filebrowserpopupmenu, p.getMenu());
+				p.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+					@Override
+					public boolean onMenuItemClick(MenuItem arg0) {
+						// TODO Auto-generated method stub
+						if (arg0.getTitle().equals("Add a new tag")) {
+							Toast.makeText(getApplicationContext(),
+									"Add a new tag selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("Add an existing tag")) {
+							Toast.makeText(getApplicationContext(),
+									"Add an existing tag", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("Remove tags")) {
+							Toast.makeText(getApplicationContext(),
+									"Remove tags selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("View Related Tags")) {
+							Toast.makeText(getApplicationContext(),
+									"View Related selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						return false;
+					}
+				});
+				p.show();
+				
+				return false;
+			}
 		});
 	}
 	

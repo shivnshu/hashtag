@@ -1,0 +1,39 @@
+PopupMenu p = new PopupMenu(MainActivity.this, b);
+				p.getMenuInflater().inflate(R.menu.main, p.getMenu());
+				p.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+					@Override
+					public boolean onMenuItemClick(MenuItem arg0) {
+						// TODO Auto-generated method stub
+						if (arg0.getTitle().equals("item1")) {
+							Toast.makeText(getApplicationContext(),
+									"item 1 selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("item2")) {
+							Toast.makeText(getApplicationContext(),
+									"item 2 selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("item3")) {
+							Toast.makeText(getApplicationContext(),
+									"item 3 selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						if (arg0.getTitle().equals("item4")) {
+							Toast.makeText(getApplicationContext(),
+									"item 4 selected", Toast.LENGTH_LONG)
+									.show();
+						}
+						return false;
+					}
+				});
+				p.show();<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/addnewtag" android:title="Add a new tag"></item>
+    <item android:id="@+id/removetags" android:title="Remove tags"></item>
+    <item android:id="@+id/addexistingtag" android:title="Add an existing tag"></item>
+    <item android:id="@+id/viewrelatedtags" android:title="View Related tags"></item>
+    
+
+</menu>
