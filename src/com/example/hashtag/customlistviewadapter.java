@@ -76,8 +76,11 @@ public class customlistviewadapter extends BaseAdapter  {
 		if(img1.get(position)==0){
 			holder.img.setImageResource(R.drawable.fclose);
 		}
-		else{
+		else if(img1.get(position)==1){
 			holder.img.setImageResource(R.drawable.file);
+		}
+		else{
+			holder.img.setImageResource(R.drawable.back);
 		}
 		
 		return rowView;

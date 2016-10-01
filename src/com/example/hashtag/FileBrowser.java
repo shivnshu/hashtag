@@ -5,13 +5,6 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-
-
-
-
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,23 +26,27 @@ import android.widget.Toast;
 public class FileBrowser extends Activity {
 
 	File currentdir;
+	TagDatabase db;
 	customlistviewadapter adapter;
 	ListView l;
 	List<String>t1 = new ArrayList<String>();
 	List<String>t2 = new ArrayList<String>();
 	List<String>t3 = new ArrayList<String>();
 	List<String>path = new ArrayList<String>();
+	List<File>filearg = new ArrayList<File>();
 	List<Integer>img = new ArrayList<Integer>();
 	List<String>t1f = new ArrayList<String>();
 	List<String>t2f = new ArrayList<String>();
 	List<String>t3f = new ArrayList<String>();
 	List<Integer>imgf = new ArrayList<Integer>();
 	List<String>pathf = new ArrayList<String>();
+	List<File>fileargf = new ArrayList<File>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_file_browser);
+		db = new TagDatabase(this);
 		l=(ListView)findViewById(R.id.listView1);
 		String path=Environment.getExternalStorageDirectory().toString();
 		currentdir=new File(path);		
@@ -71,6 +68,8 @@ public class FileBrowser extends Activity {
 		  imgf.clear();	
 		  path.clear();
 		  pathf.clear();
+		  filearg.clear();
+		  fileargf.clear();
 		 try{		     
 			 for(File ff: dirs){				 
 				 Date lastModDate = new Date(ff.lastModified()); 
@@ -78,6 +77,7 @@ public class FileBrowser extends Activity {
 			     String date_modify = formater.format(lastModDate);			     
 			     String name=ff.getName();			     
 			     String p=ff.getAbsolutePath();
+			     File fp=ff;
 			     if(ff.isDirectory()){
 			    	 	File[] fbuf = ff.listFiles(); 
 						int buf = 0;
@@ -95,13 +95,16 @@ public class FileBrowser extends Activity {
 						t3.add(date_modify);
 						img.add(0);
 						path.add(p);
+						filearg.add(fp);
 				}
 				else{		
-					String num_item = ff.length()+ " bytes";t1f.add(name);
+					String num_item = ff.length()+ " bytes";
+					t1f.add(name);
 					t2f.add(num_item);
 					t3f.add(date_modify);
 					imgf.add(1);	
 					pathf.add(p);
+					fileargf.add(fp);
 				}
 			 }
 		 }
@@ -112,6 +115,7 @@ public class FileBrowser extends Activity {
 		 t3.addAll(t3f);
 		 img.addAll(imgf);
 		 path.addAll(pathf);
+		 filearg.addAll(fileargf);
 		/* if(!currentdir.getPath().toString().equals(Environment.getExternalStorageDirectory().toString())){
 			 t1.add(0, "back");
 			 t1.add(0, ".");
@@ -160,9 +164,7 @@ public class FileBrowser extends Activity {
 					public boolean onMenuItemClick(MenuItem arg0) {
 						// TODO Auto-generated method stub
 						if (arg0.getTitle().equals("Add a new tag")) {
-							Toast.makeText(getApplicationContext(),
-									"item 1 selected", Toast.LENGTH_LONG)
-									.show();
+							db.addanewtag(filearg.get(arg0));
 						}
 						if (arg0.getTitle().equals("Add an existing tag")) {
 							Toast.makeText(getApplicationContext(),
