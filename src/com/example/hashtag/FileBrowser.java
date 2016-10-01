@@ -10,6 +10,8 @@ import java.util.List;
 
 
 
+
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -117,6 +119,14 @@ public class FileBrowser extends Activity {
 			 img.add(0, 1);
 			 path.add(0,currentdir.getPath());
 		 }		*/ 
+		 //Toast.makeText(getApplicationContext(), f.getName(), Toast.LENGTH_LONG).show();
+		 if(!f.getName().equalsIgnoreCase("sdcard0")){
+			 t1.add(0,"back");
+			 t2.add(0,"..");
+			 t3.add(0,"..");
+			 img.add(0,2);
+			 path.add(0,f.getParent());
+		 }
 		 adapter = new customlistviewadapter(FileBrowser.this,t1,t2,t3,img);		 
 		 l.setAdapter(adapter); 
 		 l.setOnItemClickListener(new OnItemClickListener() {
@@ -125,7 +135,7 @@ public class FileBrowser extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-			   if(img.get(arg2)==0){
+			   if(img.get(arg2)==0||img.get(arg2)==2){
 					currentdir = new File(path.get(arg2));
 					fill(currentdir);
 					//Toast.makeText(getApplicationContext(), arg2, Toast.LENGTH_LONG).show();
