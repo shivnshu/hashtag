@@ -58,6 +58,14 @@
             android:name="com.example.hashtag.TagSearchList"
             android:label="@string/title_activity_tag_search_list" >
         </activity>
+        <activity
+            android:name="com.example.hashtag.Quickaccess"
+            android:label="@string/title_activity_quickaccess" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Bin"
+            android:label="@string/title_activity_bin" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

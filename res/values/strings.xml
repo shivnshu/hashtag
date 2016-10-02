@@ -15,5 +15,7 @@
     <string name="title_activity_removetags">Removetags</string>
     <string name="title_activity_tagseaarch">Tagseaarch</string>
     <string name="title_activity_tag_search_list">TagSearchList</string>
+    <string name="title_activity_quickaccess">Quickaccess</string>
+    <string name="title_activity_bin">Bin</string>
 
 </resources>

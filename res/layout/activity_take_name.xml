@@ -8,27 +8,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TakeName" >
 
-    <EditText
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="86dp"
+        android:layout_height="wrap_content"  
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"      
         android:ems="10" >
 
         <requestFocus />
-    </EditText>
-
+       </EditText>
     <Button
         android:id="@+id/go"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="30dp"  
+        android:layout_gravity="center_horizontal"
         android:text="Go" />
+    </LinearLayout>
 
 </RelativeLayout>

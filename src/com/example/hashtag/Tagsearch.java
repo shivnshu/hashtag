@@ -25,7 +25,7 @@ public class Tagsearch extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_tagseaarch);
+		setContentView(R.layout.activity_tagsearch);
 		a=(AutoCompleteTextView)findViewById(R.id.tagsautoCompleteTextView1);
 		b=(Button)findViewById(R.id.tagsbutton1);
 		db=new UserDatabase(this);
@@ -33,9 +33,9 @@ public class Tagsearch extends Activity {
 		ArrayList<String> adt = new ArrayList<String>(Arrays.asList(res.split("\\s*,\\s*")));
 		TreeSet<String> t=new TreeSet<String>(adt);
 		ArrayList<String> ad = new ArrayList<String>(t);
-		ArrayAdapter<String> adp=new ArrayAdapter<String>(getApplicationContext(), android.R.layout.select_dialog_item, ad);
+		ArrayAdapter<String> adp=new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, ad);
         a.setAdapter(adp); 
-        a.setBackgroundColor(Color.GRAY);
+        //a.setBackgroundColor(Color.GRAY);
         a.setThreshold(0);
 		b.setOnClickListener(new OnClickListener() {
 			
