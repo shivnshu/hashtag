@@ -27,7 +27,6 @@ public class ShowRelatedTags extends Activity {
 		ArrayList<String> ad = new ArrayList<String>(Arrays.asList(res.split("\\s*,\\s*")));
 		ArrayAdapter<String> a = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,ad);
 		l.setAdapter(a);
-		l.setBackgroundColor(Color.GRAY);
 	}
 
 	@Override

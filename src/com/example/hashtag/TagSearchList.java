@@ -8,15 +8,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 
 public class TagSearchList extends Activity {
 	static int i=1;
@@ -143,8 +150,47 @@ public class TagSearchList extends Activity {
 			}
 			 
 		});
-	}
+	
+	l.setOnItemLongClickListener(new OnItemLongClickListener() {
 
+		@TargetApi(Build.VERSION_CODES.HONEYCOMB) public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+				final int arg2, long arg3) {
+			// TODO Auto-generated method stub
+			PopupMenu p = new PopupMenu(TagSearchList.this, arg1);
+			p.getMenuInflater().inflate(R.menu.filebrowserpopupmenu, p.getMenu());
+			p.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+				@Override
+				public boolean onMenuItemClick(MenuItem arg0) {
+					// TODO Auto-generated method stub
+					if (arg0.getTitle().equals("Add a new tag")) {
+						Intent i=new Intent(TagSearchList.this,TakeName.class);
+						i.putExtra("file_path",path.get(arg2) );
+						startActivity(i);							
+					}
+					if (arg0.getTitle().equals("Add an existing tag")) {
+						Intent i=new Intent(TagSearchList.this,Addexistingtag.class);
+						i.putExtra("file_path",path.get(arg2) );
+						startActivity(i);	
+					}
+					if (arg0.getTitle().equals("Remove tags")) {
+						Intent i=new Intent(TagSearchList.this,Removetags.class);
+						i.putExtra("file_path",path.get(arg2) );
+						startActivity(i);
+					}
+					if (arg0.getTitle().equals("View Related tags")) {
+						Intent i=new Intent(TagSearchList.this,ShowRelatedTags.class);
+						i.putExtra("file_path",path.get(arg2) );
+						startActivity(i);
+					}
+					return false;
+				}
+			});
+			p.show();
+			return true;
+		}
+	});
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

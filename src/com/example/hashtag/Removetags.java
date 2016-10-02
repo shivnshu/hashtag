@@ -36,7 +36,6 @@ public class Removetags extends Activity {
 		//l.setAdapter(a);
 		adapter1=new customchecklistadapter(getApplicationContext(), ad);
 		l.setAdapter(adapter1);
-		l.setBackgroundColor(Color.GRAY);
 		l.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

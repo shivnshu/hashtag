@@ -40,8 +40,7 @@ public class Addexistingtag extends Activity {
 		//ArrayAdapter<String> a = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,ad);
 		//l.setAdapter(a);
 		adapter1=new customchecklistadapter(getApplicationContext(), ad);
-		l.setAdapter(adapter1);
-		l.setBackgroundColor(Color.GRAY);		
+		l.setAdapter(adapter1);		
 		l.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
