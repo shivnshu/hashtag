@@ -31,9 +31,8 @@ public class TakeName extends Activity {
 				// TODO Auto-generated method stub
 				String s=e.getText().toString().trim();
 				db.addnewtag(getIntent().getExtras().getString("file_path"),s);
-				Toast.makeText(getApplicationContext(), path, Toast.LENGTH_SHORT).show();
-				
-				//finish();
+				//Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+				finish();
 			}
 		});
 	}

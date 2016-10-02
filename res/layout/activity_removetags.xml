@@ -6,8 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Addexistingtag" 
-    android:descendantFocusability="blocksDescendants">
+    tools:context=".Removetags"
+    android:descendantFocusability="blocksDescendants"  >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,11 +15,11 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/addetaglistView1"
+            android:id="@+id/rmvtagslistview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
         </ListView>
-
+        
     </LinearLayout>
 
 </RelativeLayout>

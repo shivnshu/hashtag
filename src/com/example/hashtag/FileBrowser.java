@@ -24,7 +24,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class FileBrowser extends Activity {
-
+	
 	File currentdir;
 	customlistviewadapter adapter;
 	ListView l;
@@ -172,9 +172,9 @@ public class FileBrowser extends Activity {
 							startActivity(i);	
 						}
 						if (arg0.getTitle().equals("Remove tags")) {
-							Toast.makeText(getApplicationContext(),
-									"item 2 selected", Toast.LENGTH_LONG)
-									.show();
+							Intent i=new Intent(FileBrowser.this,Removetags.class);
+							i.putExtra("file_path",path.get(arg2) );
+							startActivity(i);
 						}
 						if (arg0.getTitle().equals("View Related tags")) {
 							Intent i=new Intent(FileBrowser.this,ShowRelatedTags.class);

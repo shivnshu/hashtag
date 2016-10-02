@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-   Button b;
+   Button b,b2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,17 @@ public class MainActivity extends Activity {
 				startActivity(i);
 			}
 		});
+        b2=(Button)findViewById(R.id.Tagsearch);
+        b2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent i=new Intent(MainActivity.this,Tagsearch.class);
+				startActivity(i);
+			}
+		});
+
     }
 
 

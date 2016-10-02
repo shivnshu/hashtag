@@ -46,6 +46,18 @@
             android:name="com.example.hashtag.ShowRelatedTags"
             android:label="@string/title_activity_show_related_tags" >
         </activity>
+        <activity
+            android:name="com.example.hashtag.Removetags"
+            android:label="@string/title_activity_removetags" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Tagsearch"
+            android:label="@string/title_activity_tagseaarch" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.TagSearchList"
+            android:label="@string/title_activity_tag_search_list" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

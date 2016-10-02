@@ -1,5 +1,7 @@
 package com.example.hashtag;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class customchecklistadapter extends BaseAdapter{String [] result;
+public class customchecklistadapter extends BaseAdapter{ArrayList<String> result;
 private static LayoutInflater inflater=null;
-public customchecklistadapter(MainActivity context, String[] prgmNameList) {
+public customchecklistadapter(Context context, ArrayList<String> prgmNameList) {
     // TODO Auto-generated constructor stub
     result=prgmNameList;
 
@@ -20,7 +22,7 @@ public customchecklistadapter(MainActivity context, String[] prgmNameList) {
 @Override
 public int getCount() {
     // TODO Auto-generated method stub
-    return result.length;
+    return result.size();
 }
 
 @Override
@@ -49,7 +51,7 @@ public View getView(final int position, View convertView, ViewGroup parent) {
     holder.tv=(TextView) rowView.findViewById(R.id.textView);
     holder.cb = (CheckBox)rowView.findViewById(R.id.cb);
 
-    holder.tv.setText(result[position]);
+    holder.tv.setText(result.get(position));
     holder.cb.setChecked(false);
 
     return rowView;

@@ -12,5 +12,8 @@
     <string name="title_activity_take_name">TakeName</string>
     <string name="title_activity_addexistingtag">Addexistingtag</string>
     <string name="title_activity_show_related_tags">ShowRelatedTags</string>
+    <string name="title_activity_removetags">Removetags</string>
+    <string name="title_activity_tagseaarch">Tagseaarch</string>
+    <string name="title_activity_tag_search_list">TagSearchList</string>
 
 </resources>

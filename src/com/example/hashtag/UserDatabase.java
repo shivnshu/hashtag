@@ -1,5 +1,6 @@
 package com.example.hashtag;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +53,22 @@ public class UserDatabase extends SQLiteOpenHelper {
 		Cursor c = db.rawQuery("select tag from userinfo", null);
 		while(c.moveToNext()){
 			String s=c.getString(c.getColumnIndex("tag"));	
+			l=l+s+",";			
+		}
+		return l;
+	}
+	
+	public void delete(String path,String tag){
+		db.execSQL("delete from userinfo where path='"+path+"'AND tag='"+tag+"'");
+	}
+
+	public String getAllfiles(String tag) {
+		// TODO Auto-generated method stub
+		String l="";
+		Cursor c = db.rawQuery("select path from userinfo where tag='"+tag+"'", null);
+		int i=c.getCount();
+		while(c.moveToNext()){
+			String s=c.getString(c.getColumnIndex("path"));	
 			l=l+s+",";			
 		}
 		return l;
