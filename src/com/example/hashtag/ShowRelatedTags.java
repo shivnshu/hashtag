@@ -25,8 +25,13 @@ public class ShowRelatedTags extends Activity {
 		String path=b.getString("file_path");
 		String res=db.getfiletags(path);
 		ArrayList<String> ad = new ArrayList<String>(Arrays.asList(res.split("\\s*,\\s*")));
+		if(ad.size()==0){
+			Toast.makeText(getApplicationContext(), "No tags attached to File/Folder", Toast.LENGTH_SHORT).show();
+		}
+		else{
 		ArrayAdapter<String> a = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,ad);
 		l.setAdapter(a);
+		}
 	}
 
 	@Override

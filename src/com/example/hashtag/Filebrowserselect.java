@@ -134,7 +134,7 @@ public class Filebrowserselect extends Activity {
 					}
 				});
 				p.show();*/
-        	   Toast.makeText(getApplicationContext(),"mange tags Selected",Toast.LENGTH_LONG).show();  
+        	   Toast.makeText(getApplicationContext(),"Work to be done",Toast.LENGTH_LONG).show();  
 		
                return true; 
                              

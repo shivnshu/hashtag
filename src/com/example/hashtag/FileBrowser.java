@@ -205,7 +205,7 @@ public class FileBrowser extends Activity {
                 return true;  
             }                 
            case R.id.action_select: {
-        	   Toast.makeText(getApplicationContext(),"select Selected",Toast.LENGTH_LONG).show();  
+        	   //Toast.makeText(getApplicationContext(),"select Selected",Toast.LENGTH_LONG).show();  
         	   Intent i=new Intent(FileBrowser.this,Filebrowserselect.class);
         	   i.putExtra("path", currentdir.getPath());
         	   startActivity(i);
