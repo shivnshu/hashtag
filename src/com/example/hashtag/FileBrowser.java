@@ -1,6 +1,7 @@
 package com.example.hashtag;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -143,7 +144,14 @@ public class FileBrowser extends Activity {
 					//Toast.makeText(getApplicationContext(), arg2, Toast.LENGTH_LONG).show();
 				}
 				else{
-					Toast.makeText(getApplicationContext(), t1.get(arg2).toString(), Toast.LENGTH_LONG).show();
+					//Toast.makeText(getApplicationContext(), t1.get(arg2).toString(), Toast.LENGTH_LONG).show();
+					File myFile = new File(path.get(arg2));
+					try {
+						FileOpen.openFile(getApplicationContext(), myFile);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 			 
