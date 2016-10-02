@@ -14,12 +14,12 @@ import android.widget.Toast;
 public class TakeName extends Activity {
 	EditText e;
 	Button b1;
-	TagDatabase db;
+	UserDatabase db;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_take_name);
-		db=new TagDatabase(this);
+		db=new UserDatabase(this);
 		Bundle b=getIntent().getExtras();
 		final String path=b.getString("file_path");
 		//Toast.makeText(getApplicationContext(), path, Toast.LENGTH_SHORT).show();
@@ -30,8 +30,8 @@ public class TakeName extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				String s=e.getText().toString().trim();
-				db.addnewtag(path,s);
-				Toast.makeText(getApplicationContext(), "Tag added", Toast.LENGTH_SHORT).show();
+				db.addnewtag(getIntent().getExtras().getString("file_path"),s);
+				Toast.makeText(getApplicationContext(), path, Toast.LENGTH_SHORT).show();
 				
 				//finish();
 			}

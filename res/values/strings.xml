@@ -10,5 +10,7 @@
     <string name="manage_tags">Manage Tags </string>
     <string name="title_activity_filepopupmenu">Filepopupmenu</string>
     <string name="title_activity_take_name">TakeName</string>
+    <string name="title_activity_addexistingtag">Addexistingtag</string>
+    <string name="title_activity_show_related_tags">ShowRelatedTags</string>
 
 </resources>

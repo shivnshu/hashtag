@@ -167,19 +167,19 @@ public class FileBrowser extends Activity {
 							startActivity(i);							
 						}
 						if (arg0.getTitle().equals("Add an existing tag")) {
-							Toast.makeText(getApplicationContext(),
-									"item 3 selected", Toast.LENGTH_LONG)
-									.show();
+							Intent i=new Intent(FileBrowser.this,Addexistingtag.class);
+							i.putExtra("file_path",path.get(arg2) );
+							startActivity(i);	
 						}
 						if (arg0.getTitle().equals("Remove tags")) {
 							Toast.makeText(getApplicationContext(),
 									"item 2 selected", Toast.LENGTH_LONG)
 									.show();
 						}
-						if (arg0.getTitle().equals("Show related tags")) {
-							Toast.makeText(getApplicationContext(),
-									"item 4 selected", Toast.LENGTH_LONG)
-									.show();
+						if (arg0.getTitle().equals("View Related tags")) {
+							Intent i=new Intent(FileBrowser.this,ShowRelatedTags.class);
+							i.putExtra("file_path",path.get(arg2) );
+							startActivity(i);
 						}
 						return false;
 					}

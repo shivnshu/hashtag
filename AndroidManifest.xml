@@ -38,6 +38,14 @@
             android:name="com.example.hashtag.TakeName"
             android:label="@string/title_activity_take_name" >
         </activity>
+        <activity
+            android:name="com.example.hashtag.Addexistingtag"
+            android:label="@string/title_activity_addexistingtag" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.ShowRelatedTags"
+            android:label="@string/title_activity_show_related_tags" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
