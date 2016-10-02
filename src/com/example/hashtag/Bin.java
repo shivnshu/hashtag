@@ -49,7 +49,7 @@ public class Bin extends Activity {
 		l=(ListView)findViewById(R.id.binlistView1);
 		db=new UserDatabase(this);
 		String res=db.getAllfiles("temp");	
-		Toast.makeText(getApplicationContext(), res, Toast.LENGTH_LONG).show();
+		//Toast.makeText(getApplicationContext(), res, Toast.LENGTH_LONG).show();
 		ArrayList<String> adt = new ArrayList<String>(Arrays.asList(res.split("\\s*,\\s*")));
 		if(adt.size()!=0){
 			File[] fi=new File[adt.size()];
