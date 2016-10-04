@@ -30,6 +30,42 @@
             android:name="com.example.hashtag.Filebrowserselect"
             android:label="@string/title_activity_filebrowserselect" >
         </activity>
+        <activity
+            android:name="com.example.hashtag.Filepopupmenu"
+            android:label="@string/title_activity_filepopupmenu" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.TakeName"
+            android:label="@string/title_activity_take_name" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Addexistingtag"
+            android:label="@string/title_activity_addexistingtag" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.ShowRelatedTags"
+            android:label="@string/title_activity_show_related_tags" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Removetags"
+            android:label="@string/title_activity_removetags" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Tagsearch"
+            android:label="@string/title_activity_tagseaarch" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.TagSearchList"
+            android:label="@string/title_activity_tag_search_list" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Quickaccess"
+            android:label="@string/title_activity_quickaccess" >
+        </activity>
+        <activity
+            android:name="com.example.hashtag.Bin"
+            android:label="@string/title_activity_bin" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

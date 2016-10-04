@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/addnewtag" android:title="Add a new tag"></item>
+    <item android:id="@+id/removetags" android:title="Remove tags"></item>
+    <item android:id="@+id/addexistingtag" android:title="Add an existing tag"></item>
+    <item android:id="@+id/viewrelatedtags" android:title="View Related tags"></item>
+    
+
+</menu>

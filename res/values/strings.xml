@@ -8,5 +8,14 @@
     <string name="action_select">select</string>
     <string name="title_activity_filebrowserselect">Filebrowserselect</string>
     <string name="manage_tags">Manage Tags </string>
+    <string name="title_activity_filepopupmenu">Filepopupmenu</string>
+    <string name="title_activity_take_name">TakeName</string>
+    <string name="title_activity_addexistingtag">Addexistingtag</string>
+    <string name="title_activity_show_related_tags">ShowRelatedTags</string>
+    <string name="title_activity_removetags">Removetags</string>
+    <string name="title_activity_tagseaarch">Tagseaarch</string>
+    <string name="title_activity_tag_search_list">TagSearchList</string>
+    <string name="title_activity_quickaccess">Quickaccess</string>
+    <string name="title_activity_bin">Bin</string>
 
 </resources>

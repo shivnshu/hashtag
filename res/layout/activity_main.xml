@@ -6,15 +6,45 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity" 
+    android:background="#758785">
 
-    <Button
-        android:id="@+id/browse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp"
-        android:text="Button" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/browse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Browse" 
+            android:background="#4CBBF3"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="160dp"/>
+
+        <Button
+            android:id="@+id/Tagsearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A1A8AC"
+            android:text="TagSearch" 
+            android:layout_marginBottom="10dp"/>
+        <Button
+            android:id="@+id/quickaccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4CBBF3"
+            android:text="Quick Access" 
+            android:layout_marginBottom="10dp"/>
+        <Button
+            android:id="@+id/bin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A1A8AC"
+            android:text="Bin" 
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -61,7 +61,7 @@ public class customcheckviewadapter extends BaseAdapter {
 		Holder holder = new Holder();
 		View rowView;
 		rowView = inflater.inflate(R.layout.customcheckview, null);
-		holder.t1 = (TextView)rowView.findViewById(R.id.textView1);
+		holder.t1 = (TextView)rowView.findViewById(R.id.namenewtag);
 		holder.t2 = (TextView)rowView.findViewById(R.id.textView2);
 		holder.t3 = (TextView)rowView.findViewById(R.id.textView3);
 		holder.img = (ImageView)rowView.findViewById(R.id.imageView1);
@@ -76,7 +76,15 @@ public class customcheckviewadapter extends BaseAdapter {
 		holder.t1.setText(result1.get(position));
 		holder.t2.setText(result2.get(position));
 		holder.t3.setText(result3.get(position));
-		holder.img.setImageResource(R.drawable.ic_launcher);
+		if(img1.get(position)==0){
+			holder.img.setImageResource(R.drawable.fclose);
+		}
+		else if(img1.get(position)==1){
+			holder.img.setImageResource(R.drawable.file);
+		}
+		else{
+			holder.img.setImageResource(R.drawable.back);
+		}
 		holder.check.setChecked(false);
 		
 		return rowView;
